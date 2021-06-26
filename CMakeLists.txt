@@ -16,3 +16,4 @@ add_executable(OpenGlTuto
         main.cpp
         main.h)
 
+target_link_libraries(OpenGlTuto glfw3 X11 pthread dl)
