@@ -11,10 +11,8 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9dae363-16cc-4954-9474-fddaeb02c6fd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="e9dae363-16cc-4954-9474-fddaeb02c6fd" name="Default Changelist" comment="compilation flag linkers mis à jour">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,8 +72,16 @@
       <workItem from="1624643060031" duration="845000" />
       <workItem from="1624648171810" duration="509000" />
       <workItem from="1624648725559" duration="73000" />
-      <workItem from="1624691359734" duration="4063000" />
+      <workItem from="1624691359734" duration="5025000" />
     </task>
+    <task id="LOCAL-00001" summary="compilation flag linkers mis à jour">
+      <created>1624722642582</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1624722642582</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -91,5 +97,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="compilation flag linkers mis à jour" />
+    <option name="LAST_COMMIT_MESSAGE" value="compilation flag linkers mis à jour" />
   </component>
 </project>
