@@ -11,8 +11,8 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9dae363-16cc-4954-9474-fddaeb02c6fd" name="Default Changelist" comment="compilation flag linkers mis à jour">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="e9dae363-16cc-4954-9474-fddaeb02c6fd" name="Default Changelist" comment="first window appears">
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +72,7 @@
       <workItem from="1624643060031" duration="845000" />
       <workItem from="1624648171810" duration="509000" />
       <workItem from="1624648725559" duration="73000" />
-      <workItem from="1624691359734" duration="5025000" />
+      <workItem from="1624691359734" duration="5340000" />
     </task>
     <task id="LOCAL-00001" summary="compilation flag linkers mis à jour">
       <created>1624722642582</created>
@@ -81,7 +81,21 @@
       <option name="project" value="LOCAL" />
       <updated>1624722642582</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="first window appears">
+      <created>1624723859213</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1624723859213</updated>
+    </task>
+    <task id="LOCAL-00003" summary="first window appears">
+      <created>1624723865728</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1624723865728</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -100,6 +114,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="compilation flag linkers mis à jour" />
-    <option name="LAST_COMMIT_MESSAGE" value="compilation flag linkers mis à jour" />
+    <MESSAGE value="first window appears" />
+    <option name="LAST_COMMIT_MESSAGE" value="first window appears" />
   </component>
 </project>

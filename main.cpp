@@ -28,9 +28,22 @@ int main() {
     // use the window
     glfwMakeContextCurrent(window);
 
+    // load openGL config into glad
+    gladLoadGL();
+
+    // declare window area to render
+    glViewport(0, 0, 600, 600);
+
+    // sets back buffer to navy blue
+    glClearColor(0.07f, 0.13f, 0.17f, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT);
+
+    // swaps front and back buffers to display blue
+    glfwSwapBuffers(window);
+
+    // window stays open until we close it
     while (!glfwWindowShouldClose(window)) {
         glfwPollEvents();
-
     }
     glfwDestroyWindow(window);
     glfwTerminate();
