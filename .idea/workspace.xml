@@ -11,7 +11,8 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9dae363-16cc-4954-9474-fddaeb02c6fd" name="Default Changelist" comment="first window appears">
+    <list default="true" id="e9dae363-16cc-4954-9474-fddaeb02c6fd" name="Default Changelist" comment="color the window">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -41,8 +42,9 @@
     <property name="cf.first.check.clang-format" value="false" />
     <property name="cidr.known.project.marker" value="true" />
     <property name="cmake.loaded.for.project" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/compare.cpp" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/compare.cpp" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
@@ -72,7 +74,7 @@
       <workItem from="1624643060031" duration="845000" />
       <workItem from="1624648171810" duration="509000" />
       <workItem from="1624648725559" duration="73000" />
-      <workItem from="1624691359734" duration="5340000" />
+      <workItem from="1624691359734" duration="12161000" />
     </task>
     <task id="LOCAL-00001" summary="compilation flag linkers mis à jour">
       <created>1624722642582</created>
@@ -95,7 +97,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624723865728</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="color the window">
+      <created>1624724321372</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1624724321372</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -115,6 +124,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="compilation flag linkers mis à jour" />
     <MESSAGE value="first window appears" />
-    <option name="LAST_COMMIT_MESSAGE" value="first window appears" />
+    <MESSAGE value="color the window" />
+    <option name="LAST_COMMIT_MESSAGE" value="color the window" />
   </component>
 </project>
