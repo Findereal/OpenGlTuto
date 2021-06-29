@@ -32,13 +32,6 @@ int main() {
     // declare profile of OpenGL
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-    // creates array of vertices for triangle
-    GLfloat vertices[] = {
-            -0.5f, -0.5f * float(sqrt(3)) / 3, 0.0f,
-            0.5f, -0.5f * float(sqrt(3)) / 3, 0.0f,
-            0.0f, 0.5f * float(sqrt(3)) * 2 / 3, 0.0f
-    };
-
     // creates window object with error detection.
     // a window has to be deleted after use
     GLFWwindow *window = glfwCreateWindow(600, 600, "title", nullptr, nullptr);
@@ -81,18 +74,39 @@ int main() {
     glDeleteShader(fragmentShader);
 
 
-    // builds the triangle
+    // creates array of vertices for triangle
+    GLfloat vertices[] = {
+            -0.5f, -0.5f * float(sqrt(3)) / 3, 0.0f,
+            0.5f, -0.5f * float(sqrt(3)) / 3, 0.0f,
+            0.0f, 0.5f * float(sqrt(3)) * 2 / 3, 0.0f,
+            -0.5f / 2, 0.5f * float(sqrt(3)) / 6, 0.0f,
+            0.5f / 2, 0.5f * float(sqrt(3)) / 6, 0.0f,
+            0.0f, -0.5f * float(sqrt(3)) / 3, 0.0f
+    };
+
+    // declares order of vertices to visit
+    GLuint indices[] = {0, 3, 5,
+                        3, 2, 4,
+                        5, 4, 1};
+
+    // Creates reference points for data
     // vertex array object: where the data is used
     // vertex buffer object: where the data is stored
-    GLuint VAO, VBO;
+    GLuint VAO, VBO, EBO;
     // generate VAO before VBO !!!!
     glGenVertexArrays(1, &VAO);
     glGenBuffers(1 /* only 1 3D object */, &VBO);
+    glGenBuffers(1, &EBO);
+
 
     glBindVertexArray(VAO);
 
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);  // says VBO will hold vertices data
+
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+
 
     glVertexAttribPointer(0 /* position of vertex attribute */,
                           3 /* number of attributes per vertex */,
@@ -105,6 +119,7 @@ int main() {
     // not mandatory, but better have it
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindVertexArray(0);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0); // unbind EBO after VAO since EBO is stored in VAO
 
 
     // sets back buffer to navy blue
@@ -120,7 +135,10 @@ int main() {
         glClear(GL_COLOR_BUFFER_BIT);
         glUseProgram(shaderProgram);
         glBindVertexArray(VAO);
-        glDrawArrays(GL_TRIANGLES, 0, 3);
+        glDrawElements(GL_TRIANGLES /* primitive to use */,
+                       9 /* number of indices to draw */,
+                       GL_UNSIGNED_INT /* type of data for indices */,
+                       0 /* first index of indices to draw */);
         glfwSwapBuffers(window);
 
         // reacts to user inputs
@@ -130,6 +148,7 @@ int main() {
     // free memory
     glDeleteVertexArrays(1, &VAO);
     glDeleteBuffers(1, &VBO);
+    glDeleteBuffers(1, &EBO);
     glDeleteProgram(shaderProgram);
     glfwDestroyWindow(window);
     glfwTerminate();

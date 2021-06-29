@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/OpenGlTuto.iml" filepath="$PROJECT_DIR$/.idea/OpenGlTuto.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/OpenGlTuto2.iml" filepath="$PROJECT_DIR$/.idea/OpenGlTuto2.iml" />
     </modules>
   </component>
 </project>
