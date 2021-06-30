@@ -46,10 +46,13 @@ Shader::Shader(const char *vFile, const char *fFile) {
     GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER);
     glShaderSource(vertexShader, 1, &vSource, nullptr);
     glCompileShader(vertexShader);  // does not throw errors if code is shit
+    compileErrors(vertexShader, "VERTEX");
+
 
     GLuint fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
     glShaderSource(fragmentShader, 1, &fSource, nullptr);
     glCompileShader(fragmentShader);    // same here
+    compileErrors(fragmentShader, "FRAGMENT");
 
     //  then create the shader program:
     //  by assigning a reference to it and
@@ -70,4 +73,22 @@ void Shader::Activate() {
 
 void Shader::Delete() {
     glDeleteProgram(id);
+}
+
+void Shader::compileErrors(unsigned int shader, const char *type) {
+    GLint hasComp;
+    char infoLog[1024];
+    if (type != "PROGRAM") {
+        glGetShaderiv(shader, GL_COMPILE_STATUS, &hasComp);
+        if (hasComp == GL_FALSE) {
+            glGetShaderInfoLog(shader, 1024, NULL, infoLog);
+            std::cout << "Shader Compilation Error for " << type << "\n" << std::endl;
+        }
+    } else {
+        glGetProgramiv(shader, GL_COMPILE_STATUS, &hasComp);
+        if (hasComp == GL_FALSE) {
+            glGetProgramInfoLog(shader, 1024, NULL, infoLog);
+            std::cout << "Shader Linking Error for " << type << "\n" << std::endl;
+        }
+    }
 }

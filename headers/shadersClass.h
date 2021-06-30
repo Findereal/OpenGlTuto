@@ -14,13 +14,18 @@
 
 std::string get_file_contents(const char* filename);
 
-class Shader{
+class Shader {
 public:
     GLuint id;
-    Shader(const char* vFile, const char* fFile);
+
+    Shader(const char *vFile, const char *fFile);
 
     void Activate();
+
     void Delete();
+
+private:
+    void compileErrors(unsigned int shader, const char *type);
 };
 
 #endif //OPENGLTUTO_SHADERSCLASS_H

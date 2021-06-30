@@ -78,6 +78,10 @@ int main() {
     VBO1.Unbind();
     EBO1.Unbind();
 
+    // reference the "uniform" variable
+    GLuint uniID = glGetUniformLocation(shaderProgram.id, "scale");
+
+
 
     // not mandatory, but better have it
     // sets back buffer to navy blue
@@ -92,6 +96,8 @@ int main() {
         glClearColor(0.07f, 0.13f, 0.17f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
         shaderProgram.Activate();
+        // initialize the "uniform" variable /!\ ONLY AFTER activating shader program
+        glUniform1f(uniID, 0.5f);
         VAO1.Bind();
         glDrawElements(GL_TRIANGLES /* primitive to use */,
                        9 /* number of indices to draw */,
