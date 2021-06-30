@@ -8,15 +8,15 @@ VAO::VAO() {
     glGenVertexArrays(1, &id);
 }
 
-void VAO::linkVBO(VBO &VBO, GLuint layout) {
+void VAO::linkAttrib(VBO &VBO, GLuint layout, GLuint numComp, GLenum type, GLsizeiptr stride, void *offset) {
     VBO.Bind();
     glVertexAttribPointer(layout /* position of vertex attribute */,
-                          3 /* number of attributes per vertex */,
-                          GL_FLOAT /* type of values */,
+                          numComp /* number of attributes per vertex */,
+                          type /* type of values */,
                           GL_FALSE /* matters only if values are int */,
-                          3 * sizeof(float) /* amount of data in each vertex */,
-                          (void *) nullptr /* offset of first vertex */);
-    glEnableVertexAttribArray(0);
+                          stride /* amount of data in each vertex */,
+                          offset /* offset of first vertex */);
+    glEnableVertexAttribArray(layout);
     VBO.Unbind();
 }
 

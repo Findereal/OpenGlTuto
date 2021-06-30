@@ -14,7 +14,7 @@ public:
     GLuint id;
     VAO();
 
-    void linkVBO(VBO &VBO, GLuint layout);
+    void linkAttrib(VBO &VBO, GLuint layout, GLuint numComp, GLenum type, GLsizeiptr stride, void *offset);
 
     void Bind();
     void Unbind();
