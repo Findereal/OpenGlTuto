@@ -11,6 +11,7 @@ include_directories(libraries/include/KHR)
 include_directories(libraries/include/stb)
 include_directories(resources)
 include_directories(resources/Shader)
+include_directories(resources/Textures)
 include_directories(source)
 include_directories(headers)
 
@@ -19,20 +20,13 @@ add_executable(OpenGlTuto)
 
 target_sources(OpenGlTuto
         PUBLIC
-        resources/Shader/default.frag
-        resources/Shader/default.vert
-        libraries/include/glad/glad.h
-        libraries/include/KHR/khrplatform.h
-        headers/shadersClass.h
-        headers/EBO.h
-        headers/VAO.h
-        headers/VBO.h
         source/glad.c
         source/shadersClass.cpp
         source/EBO.cpp
         source/VAO.cpp
         source/VBO.cpp
         source/stb.cpp
+
         main.cpp)
 
 target_link_libraries(OpenGlTuto glfw3 X11 pthread dl)

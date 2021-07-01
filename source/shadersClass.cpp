@@ -5,8 +5,6 @@
 #include "shadersClass.h"
 
 std::string get_file_contents(const char *filename) {
-    printf("%s\n", filename);
-
 
     std::ifstream f(filename, std::ios::binary);
     if (f) {
@@ -19,10 +17,8 @@ std::string get_file_contents(const char *filename) {
         str.assign((std::istreambuf_iterator<char>(f)),
                    std::istreambuf_iterator<char>());
         return (str);
-    } else {
-        std::cout << "we have a problem here\n";
-        return "1";
     }
+    throw (errno);
 }
 
 Shader::Shader(const char *vFile, const char *fFile) {
