@@ -11,23 +11,24 @@
 #include "VBO.h"
 #include "VAO.h"
 #include "EBO.h"
+//#include "stb_image.h"
 
 
-// creates array of vertices for triangle
+// creates array of vertices for square
 GLfloat vertices[] = {
-//                      COORDINATES                       /     COLORS       //
-        -0.5f, -0.5f * float(sqrt(3)) / 3, 0.0f, 0.8f, 0.3f, 0.02f,  // lower left
-        0.5f, -0.5f * float(sqrt(3)) / 3, 0.0f, 0.8f, 0.3f, 0.02f,  // lower right
-        0.0f, 0.5f * float(sqrt(3)) * 2 / 3, 0.0f, 1.0f, 0.6f, 0.32f,  // upper
-        -0.25f, 0.5f * float(sqrt(3)) / 6, 0.0f, 0.9f, 0.45f, 0.17f, // inner left
-        0.25f, 0.5f * float(sqrt(3)) / 6, 0.0f, 0.9f, 0.45f, 0.17f, // inner right
-        0.0f, -0.5f * float(sqrt(3)) / 3, 0.0f, 0.8f, 0.3f, 0.02f   // inner down
+        //   COORDINATES     /     COLORS      //
+        -.5f, -.5f, .0f, 1.f, 0.f, 0.f,  // lower left
+        .5f, -.5f, .0f, 0.f, 1.f, 0.f,  // lower right
+        -.5f, .5f, .0f, 0.f, 0.f, 1.f,  // upper left
+        .5f, .5f, .0f, 1.f, 1.f, 1.f   // upper right
 };
 
 // declares order of vertices to visit
-GLuint indices[] = {0, 3, 5,
-                    3, 2, 4,
-                    5, 4, 1};
+GLuint indices[] = {0, 3, 2,
+                    0, 1, 3};
+
+// scale should never be 0
+GLfloat scaleFactor = .1f;
 
 
 int main() {
@@ -39,6 +40,9 @@ int main() {
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     // declare profile of OpenGL
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+    glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
+    // temporary fix
+    // TODO : have the coordinates follow the size of the window when it's resized
 
     // creates window object with error detection.
     // a window has to be deleted after use
@@ -81,8 +85,6 @@ int main() {
     // reference the "uniform" variable
     GLuint uniID = glGetUniformLocation(shaderProgram.id, "scale");
 
-
-
     // not mandatory, but better have it
     // sets back buffer to navy blue
     glClearColor(0.07f, 0.13f, 0.17f, 1.0f);
@@ -97,10 +99,10 @@ int main() {
         glClear(GL_COLOR_BUFFER_BIT);
         shaderProgram.Activate();
         // initialize the "uniform" variable /!\ ONLY AFTER activating shader program
-        glUniform1f(uniID, 0.5f);
+        glUniform1f((GLint) uniID, scaleFactor);
         VAO1.Bind();
         glDrawElements(GL_TRIANGLES /* primitive to use */,
-                       9 /* number of indices to draw */,
+                       6 /* number of indices to draw */,
                        GL_UNSIGNED_INT /* type of data for indices */,
                        nullptr /* first index of indices to draw */);
         glfwSwapBuffers(window);
